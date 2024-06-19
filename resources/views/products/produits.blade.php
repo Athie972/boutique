@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>HELLO</h1>
+    <h1>PRODUITS</h1>
     <ul>
     @foreach ($products as $product)
     <li>{{$product->name}} {{$product->description}} au prix de {{$product->price}}
