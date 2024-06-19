@@ -10,7 +10,9 @@
     <h1>HELLO</h1>
     <ul>
     @foreach ($products as $product)
-    <li>{{$product->name}}</li>
+    <li>{{$product->name}} {{$product->description}} au prix de {{$product->price}}
+
+    </li>
     @endforeach
 </ul>
 </body>
