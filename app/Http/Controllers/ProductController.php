@@ -13,7 +13,7 @@ class ProductController extends Controller
     public function index()
     {
         $products= Product::all();
-        return view('products.produits', [
+        return view('produit.produits', [
             'products'=> $products
         ]);
     }
@@ -40,7 +40,7 @@ class ProductController extends Controller
         // créer un produit
         Product::create($request->all());
         // redirection vers la page
-        return redirect()->route('products.index');
+        return redirect()->route('produit.index');
     }
 
     /**
@@ -57,7 +57,7 @@ class ProductController extends Controller
     public function edit(string $id)
     {
         $product = Product::findOrFail($id);
-            return  view('products.modifier', compact('product'));
+            return  view('produit.modifier', compact('product'));
     }
 
     /**
@@ -75,7 +75,7 @@ class ProductController extends Controller
         $product = Product::findOrFail($id);
          $product->update($validatedData);
 
-        return redirect()->route('products.index');
+        return redirect()->route('product.index');
     }
 
     /**
