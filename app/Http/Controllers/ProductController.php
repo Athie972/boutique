@@ -31,7 +31,16 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // valider longueur des données
+        $validatedData = $request->validate([
+            'name' => 'required|string|min:3',
+            'description' => 'required|string|min:6',
+            'price' => 'required|string|min:2',
+        ]);
+        // créer un produit
+        Product::create($request->all());
+        // redirection vers la page
+        return redirect()->route('products.index');
     }
 
     /**
@@ -47,7 +56,8 @@ class ProductController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $product = Product::findOrFail($id);
+            return  view('products.modifier', compact('product'));
     }
 
     /**
@@ -55,7 +65,17 @@ class ProductController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $validatedData = $request->validate([
+            'name' => 'required|string|min:3',
+            'description' => 'required|string|min:6',
+            'price' => 'required|string|min:2',
+        ]);
+
+        // modifier
+        $product = Product::findOrFail($id);
+         $product->update($validatedData);
+
+        return redirect()->route('products.index');
     }
 
     /**
@@ -63,6 +83,8 @@ class ProductController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $product = Product::find($id);
+        $product->delete();
+        return redirect()->route('products.index');
     }
 }
