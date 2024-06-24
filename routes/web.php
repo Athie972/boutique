@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [ProductController::class, 'index'])->name('product.index');
 
 // créer un nouveau produit
+Route::get('/create', [ProductController::class, 'create'])->name('product.create');
 Route::post('/products', [ProductController::class, 'store'])->name('product.store');
 
 //modifier un produit
@@ -17,3 +18,4 @@ Route::post('/update/{id}', [ProductController::class,'update'])->name('product.
 
 //supprimer un produit
 Route::post('/delete/{id}', [ProductController::class, 'destroy'])->name('product.destroy');
+

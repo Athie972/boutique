@@ -1,3 +1,5 @@
+@extends('produit.layouts.template')
+@section('title', 'Details des produits')
 @section('details')
     
 @foreach ($products as $product)

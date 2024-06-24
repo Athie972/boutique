@@ -1,13 +1,9 @@
 @extends('produit.layouts.template')
 
-@section('content')
+ @section('content')
     
     <h1>HELLO</h1>
-
-    @foreach ($products as $product)
-   
-
-  <table class="table">
+<table class="table">
       <thead>
         <tr>
           <th scope="col">Nom du produit</th>
@@ -17,6 +13,10 @@
           <th scope="col">Delete</th>
         </tr>
       </thead>
+    @foreach ($products as $product)
+   
+
+  
       <tbody>
           <tr>
             <th scope="row">{{$product->name}}</th>
@@ -38,4 +38,5 @@
 
   </table> 
 @endforeach
+<a href="{{route('product.create')}}">Ajouter un produit</a>
 @endsection

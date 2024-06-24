@@ -1,5 +1,5 @@
 <h2>Ajouter un produit</h2>
-    <form action="{{ route('product.store') }}" method="POST">
+    <form action="{{ route('product.store')  }}" method="POST">
         @csrf
         <div>
             <label for="name">Nom</label>

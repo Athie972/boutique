@@ -23,7 +23,8 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        $products = Product::all();
+            return  view('produit.nouveau');
     }
 
     /**
@@ -38,17 +39,21 @@ class ProductController extends Controller
             'price' => 'required|string|min:2',
         ]);
         // créer un produit
-        Product::create($request->all());
+        $product=Product::create($request->all());
+        $product->update($validatedData);
+        
         // redirection vers la page
-        return redirect()->route('produit.index');
+        return redirect()->route('product.index');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show()
     {
-        //
+        
+        // $product = Product::findOrFail();
+        //     return  view('produit.details', compact('product'));
     }
 
     /**
