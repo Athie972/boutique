@@ -15,6 +15,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProductController::class, 'edit'])->name('product.edit');
     Route::patch('/profile', [ProductController::class, 'update'])->name('product.update');
     Route::delete('/profile', [ProductController::class, 'destroy'])->name('product.destroy');
+    Route::get('/create', [ProductController::class, 'create'])->name('product.create');
+Route::post('/products', [ProductController::class, 'store'])->name('product.store');
+
 });
 
 require __DIR__.'/auth.php';
