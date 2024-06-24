@@ -17,7 +17,7 @@
   
       <tbody>
           <tr>
-            <th scope="row">{{$product->name}}</th>
+            <th>{{$product->name}}</th>
             <td>{{$product->description}}</td>
             <td>{{$product->price}}</td>
             <td>
