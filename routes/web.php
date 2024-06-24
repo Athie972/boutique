@@ -1,21 +1,20 @@
 <?php
 
-use App\Http\Controllers\ProductController;
-use Faker\Guesser\Name;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
+Route::get('/', function () {
+    return view('welcome');
+});
 
-// afficher les produits
-Route::get('/', [ProductController::class, 'index'])->name('product.index');
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
 
-// créer un nouveau produit
-Route::get('/create', [ProductController::class, 'create'])->name('product.create');
-Route::post('/products', [ProductController::class, 'store'])->name('product.store');
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
 
-//modifier un produit
-Route::get('/edit/{id}', [ProductController::class, 'edit'])->name('product.edit');
-Route::post('/update/{id}', [ProductController::class,'update'])->name('product.update');
-
-//supprimer un produit
-Route::post('/delete/{id}', [ProductController::class, 'destroy'])->name('product.destroy');
-
+require __DIR__.'/auth.php';
