@@ -12,12 +12,12 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProductController::class, 'edit'])->name('product.edit');
-    Route::patch('/profile', [ProductController::class, 'update'])->name('product.update');
-    Route::delete('/profile', [ProductController::class, 'destroy'])->name('product.destroy');
-    Route::get('/create', [ProductController::class, 'create'])->name('product.create');
-Route::post('/products', [ProductController::class, 'store'])->name('product.store');
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('prfilet.update');
+    Route::post('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});  
 
-});
+Route::get('/create', [ProductController::class, 'create'])->name('product.create');
+Route::post('/products', [ProductController::class, 'store'])->name('product.store');
 
 require __DIR__.'/auth.php';

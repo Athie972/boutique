@@ -3,7 +3,7 @@
  @section('content')
     
     <h1>HELLO</h1>
-<table class="table">
+<table class="table table-hover">
       <thead>
         <tr>
           <th scope="col">Nom du produit</th>
@@ -14,8 +14,6 @@
         </tr>
       </thead>
     @foreach ($products as $product)
-   
-
   
       <tbody>
           <tr>
