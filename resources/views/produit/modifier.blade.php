@@ -1,4 +1,6 @@
 @extends('produit.layouts.template')
+@section('modifier')
+<div id="modifcontainer">
 <h2>Modifier un produit</h2>
 <br>
 <form action="{{ route('product.update', ['id' => $product->id]) }}" method="POST">
@@ -20,3 +22,5 @@
     <br>
     <button type="submit" class="btn btn-primary">Modifier</button>
 </form>
+</div>
+@endsection

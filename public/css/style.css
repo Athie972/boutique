@@ -1,0 +1,19 @@
+#container{
+    height: 400px;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+#divcontainer{
+    margin: 30px;
+    background-color: rgb(232, 171, 125);
+    width: 1000px;
+
+}
+
+#contain{
+    height: 400px;
+display: flex;
+justify-content: center;
+align-items: center;
+}

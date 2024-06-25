@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class ProductController extends Controller
 {
@@ -23,8 +25,8 @@ class ProductController extends Controller
      */
     public function create()
     {
-        $products = Product::all();
-            return  view('produit.nouveau');
+        $product = Product::all();
+            return  view('produit.nouveau', compact('product'));
     }
 
     /**
@@ -39,8 +41,7 @@ class ProductController extends Controller
             'price' => 'required|string|min:2',
         ]);
         // créer un produit
-        $product=Product::create($request->all());
-        $product->update($validatedData);
+        Product::create($request->all());
         
         // redirection vers la page
         return redirect()->route('product.index');

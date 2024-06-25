@@ -1,11 +1,14 @@
 @extends('produit.layouts.template')
 
  @section('content')
-    
-    <h1>HELLO</h1>
-<table class="table table-hover">
+
+ <div id="container">
+  <div id="divcontainer">
+    <h1>Liste des produits </h1>
+   
+<table class="table table-hover border-info" >
       <thead>
-        <tr>
+        <tr class="table-info">
           <th scope="col">Nom du produit</th>
           <th scope="col">Description</th>
           <th scope="col">Prix</th>
@@ -25,16 +28,21 @@
               @csrf
               <button type="submit" class="btn btn-primary">Edit</button>
               </form>
-          </td>
-          <td>
+            </td>
+            <td >
               <form action="{{ route('product.destroy', ['id' => $product->id]) }}" method="POST">
                   @csrf
                   <button type="submit" class="btn btn-danger">Delete</button>
               </form>
-          </td>
+            </td>
           </tr>
+      </tbody>
 
-  </table> 
-@endforeach
-<a href="{{route('product.create')}}">Ajouter un produit</a>
+    @endforeach
+
+  </table>    
+<a href="{{route('product.create')}}">Ajouter un produit</a> 
+</div>
+</div>
+
 @endsection
