@@ -74,14 +74,15 @@ class ProductController extends Controller
         $validatedData = $request->validate([
             'name' => 'required|string|min:3',
             'description' => 'required|string|min:6',
-            'price' => 'required|string|min:2',
+            'price' => 'required|string|min:0',
         ]);
 
         // modifier
         $product = Product::findOrFail($id);
-         $product->update($validatedData);
+        $product->update($validatedData);
 
         return redirect()->route('product.index');
+
     }
 
     /**

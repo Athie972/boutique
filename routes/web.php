@@ -4,10 +4,10 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
-// Route::get('/', function(){
-//     return view('welcome');
-// });
-Route::get('/', [ProductController::class, 'index'])->name('product.index');
+Route::get('/', function(){
+    return view('welcome');
+});
+Route::get('/products', [ProductController::class, 'index'])->name('product.index');
 Route::delete('/login', [\App\Http\Controllers\AuthController::class, 'login'])->name('auth.login');
 Route::get('/logout', [\App\Http\Controllers\AuthController::class, 'logout'])->name('auth.logout');
 
